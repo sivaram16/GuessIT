@@ -46,6 +46,7 @@ class welcomestate extends State<welcome> {
                   style: TextStyle(fontSize: 44, color: Colors.white),
                   textAlign: TextAlign.center,
                   decoration: new InputDecoration(
+                    hintText: '( 1 - 100 )',
                     border: new OutlineInputBorder(
                       borderRadius: const BorderRadius.all(
                         const Radius.circular(20.0),
