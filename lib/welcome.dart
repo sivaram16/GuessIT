@@ -21,71 +21,74 @@ class welcomestate extends State<welcome> {
       resizeToAvoidBottomPadding: false,
       body: Center(
         child: Container(
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: 40),
-                child: Text("Guess the number!",
-                    style: TextStyle(color: Colors.white, fontSize: 36)),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(50, 30, 50, 0),
-                child: operation(),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                child: Container(
-                  height: 150,
-                  width: 300,
-                  child: TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        u = int.parse(value);
-                      });
-                    },
-                    style: TextStyle(fontSize: 44, color: Colors.white),
-                    textAlign: TextAlign.center,
-                    decoration: new InputDecoration(
-                      border: new OutlineInputBorder(
-                        borderRadius: const BorderRadius.all(
-                          const Radius.circular(20.0),
-                        ),
+          child: Column(children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(top: 40),
+              child: Text("Guess the number!",
+                  style: TextStyle(color: Colors.white, fontSize: 36)),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(50, 30, 50, 0),
+              child: operation(),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: Container(
+                height: 150,
+                width: 300,
+                child: TextField(
+                  onChanged: (value) {
+                    setState(() {
+                      u = int.parse(value);
+                    });
+                  },
+                  style: TextStyle(fontSize: 44, color: Colors.white),
+                  textAlign: TextAlign.center,
+                  decoration: new InputDecoration(
+                    border: new OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(20.0),
                       ),
                     ),
-                    keyboardType: TextInputType.number,
                   ),
+                  keyboardType: TextInputType.number,
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-                child: Container(
-                  width: 320,
-                  height: 100,
-                  child: RaisedButton(
-                    onPressed: () {
-                      if (!w) {
-                        setState(() {
-                          if (a >= 0.1) {
-                            a = double.parse(a.toStringAsPrecision(2)) - 0.1;
-                            l -= 1;
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+              child: Container(
+                width: 320,
+                height: 100,
+                child: RaisedButton(
+                  onPressed: w
+                      ? null
+                      : () {
+                          if (!w) {
+                            setState(() {
+                              if (a >= 0.1) {
+                                a = double.parse(a.toStringAsPrecision(2)) -
+                                    0.1;
+                                l -= 1;
+                              }
+                              f = u;
+                            });
                           }
-                          f = u;
-                        });
-                      }
-                    },
-                    color: Colors.white,
-                    shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(300.0)),
-                    elevation: 10,
-                    child: Text(
-                      "TRY",
-                      style: TextStyle(color: Colors.blue, fontSize: 36),
-                      textAlign: TextAlign.center,
-                    ),
+                        },
+                  color: Colors.white,
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(300.0)),
+                  elevation: 10,
+                  child: Text(
+                    "TRY",
+                    style: TextStyle(color: Colors.blue, fontSize: 36),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
-              Row(children: [
+            ),
+            Row(
+              children: [
                 Padding(
                   padding: EdgeInsets.fromLTRB(40, 30, 10, 0),
                   child: Text(
@@ -104,10 +107,10 @@ class welcomestate extends State<welcome> {
                     backgroundColor: Colors.grey[400],
                     progressColor: Colors.white,
                   ),
-                )
-              ]),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ]),
         ),
       ),
     );
