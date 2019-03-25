@@ -8,11 +8,11 @@ class welcome extends StatefulWidget {
 }
 
 class welcomestate extends State<welcome> {
-  int userguess;
-  int finalGuess;
-  bool won = false;
+  int u;
+  int f;
+  bool w = false;
   double a = 1;
-  int lifeCounter = 10;
+  int l = 10;
   final int random = Random().nextInt(100);
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class welcomestate extends State<welcome> {
                   child: TextField(
                     onChanged: (value) {
                       setState(() {
-                        userguess = int.parse(value);
+                        u = int.parse(value);
                       });
                     },
                     style: TextStyle(
@@ -69,13 +69,13 @@ class welcomestate extends State<welcome> {
                   height: 100,
                   child: RaisedButton(
                     onPressed: () {
-                      if (!won) {
+                      if (!w) {
                         setState(() {
                           if (a >= 0.1) {
                             a = double.parse(a.toStringAsPrecision(2)) - 0.1;
-                            lifeCounter -= 1;
+                            l -= 1;
                           }
-                          finalGuess = userguess;
+                          f = u;
                         });
                       }
                     },
@@ -98,7 +98,7 @@ class welcomestate extends State<welcome> {
                 Padding(
                   padding: EdgeInsets.fromLTRB(40, 30, 10, 0),
                   child: Text(
-                    "$lifeCounter guesses Left",
+                    "$l guesses Left",
                     style: TextStyle(
                         fontFamily: 'Montserrat',
                         fontSize: 24,
@@ -158,20 +158,19 @@ class welcomestate extends State<welcome> {
   }
 
   Widget operation() {
-    print('$a,${a == 0.0},');
     if (a == 0.0) {
       return displayLose();
-    } else if (finalGuess == null) {
+    } else if (f == null) {
       return Container(
         height: 200,
       );
-    } else if (finalGuess < random) {
+    } else if (f < random) {
       return displayUpArrow();
-    } else if (finalGuess > random) {
+    } else if (f > random) {
       return displayDownArrow();
-    } else if (finalGuess == random) {
+    } else if (f == random) {
       setState(() {
-        won = true;
+        w = true;
       });
       return displayWin();
     }
