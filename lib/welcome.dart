@@ -45,11 +45,11 @@ class welcomestate extends State<welcome> {
                   },
                   style: TextStyle(fontSize: 44, color: Colors.white),
                   textAlign: TextAlign.center,
-                  decoration: new InputDecoration(
+                  decoration: InputDecoration(
                     hintText: '( 1 - 100 )',
-                    border: new OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(20.0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20.0),
                       ),
                     ),
                   ),
@@ -78,8 +78,8 @@ class welcomestate extends State<welcome> {
                           }
                         },
                   color: Colors.white,
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(300.0)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(300.0)),
                   elevation: 10,
                   child: Text(
                     "TRY",
