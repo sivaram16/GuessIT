@@ -24,15 +24,7 @@ class welcomestate extends State<welcome> {
           child: Column(
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
-                child: Text("Guess the number!",
-                    style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        color: Colors.white,
-                        fontSize: 36)),
-              ),
-              Padding(
-                padding: EdgeInsets.fromLTRB(50, 30, 50, 0),
+                padding: EdgeInsets.fromLTRB(50, 70, 50, 0),
                 child: operation(),
               ),
               Padding(
