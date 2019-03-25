@@ -17,26 +17,27 @@ class welcomestate extends State<welcome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blue,
-        resizeToAvoidBottomPadding: false,
-        body: Center(
-            child: Container(
-                child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
-              child: Text("Guess the number!",
-                  style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      color: Colors.white,
-                      fontSize: 36)),
-            ),
-            Padding(
+      backgroundColor: Colors.blue,
+      resizeToAvoidBottomPadding: false,
+      body: Center(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+                child: Text("Guess the number!",
+                    style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        color: Colors.white,
+                        fontSize: 36)),
+              ),
+              Padding(
                 padding: EdgeInsets.fromLTRB(50, 30, 50, 0),
-                child: operation()),
-            Padding(
-              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: Container(
+                child: operation(),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                child: Container(
                   height: 150,
                   width: 300,
                   child: TextField(
@@ -58,64 +59,70 @@ class welcomestate extends State<welcome> {
                       ),
                     ),
                     keyboardType: TextInputType.number,
-                  )),
-            ),
-            Padding(
-                padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-                child: Container(
-                    width: 320,
-                    height: 100,
-                    child: RaisedButton(
-                      onPressed: () {
-                        if (!won) {
-                          setState(() {
-                            if (a >= 0.1) {
-                              a = double.parse(a.toStringAsPrecision(2)) - 0.1;
-                              lifeCounter -= 1;
-                            }
-                            finalGuess = userguess;
-                          });
-                        }
-                      },
-                      color: Colors.white,
-                      shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(300.0)),
-                      elevation: 10,
-                      child: Text(
-                        "TRY",
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontFamily: 'Montserrat',
-                            fontSize: 36),
-                        textAlign: TextAlign.center,
-                      ),
-                    ))),
-            Row(children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(40, 30, 10, 0),
-                child: Text(
-                  "$lifeCounter guesses Left",
-                  style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontSize: 24,
-                      color: Colors.white),
+                  ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(10, 30, 10, 0),
-                child: LinearPercentIndicator(
-                  width: 120.0,
-                  animation: true,
-                  animationDuration: 1500,
-                  lineHeight: 30.0,
-                  percent: displayPercent(),
-                  backgroundColor: Colors.grey[400],
-                  progressColor: Colors.white,
+                padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+                child: Container(
+                  width: 320,
+                  height: 100,
+                  child: RaisedButton(
+                    onPressed: () {
+                      if (!won) {
+                        setState(() {
+                          if (a >= 0.1) {
+                            a = double.parse(a.toStringAsPrecision(2)) - 0.1;
+                            lifeCounter -= 1;
+                          }
+                          finalGuess = userguess;
+                        });
+                      }
+                    },
+                    color: Colors.white,
+                    shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(300.0)),
+                    elevation: 10,
+                    child: Text(
+                      "TRY",
+                      style: TextStyle(
+                          color: Colors.blue,
+                          fontFamily: 'Montserrat',
+                          fontSize: 36),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 ),
-              )
-            ])
-          ],
-        ))));
+              ),
+              Row(children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(40, 30, 10, 0),
+                  child: Text(
+                    "$lifeCounter guesses Left",
+                    style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontSize: 24,
+                        color: Colors.white),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(10, 30, 10, 0),
+                  child: LinearPercentIndicator(
+                    width: 120.0,
+                    animation: true,
+                    animationDuration: 1500,
+                    lineHeight: 30.0,
+                    percent: a,
+                    backgroundColor: Colors.grey[400],
+                    progressColor: Colors.white,
+                  ),
+                )
+              ]),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Widget displayUpArrow() {
@@ -148,10 +155,6 @@ class welcomestate extends State<welcome> {
       height: 180,
       width: 180,
     );
-  }
-
-  double displayPercent() {
-    return a;
   }
 
   Widget operation() {

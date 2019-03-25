@@ -1,6 +1,6 @@
-import 'splash.dart';
 import 'package:flutter/material.dart';
+import 'welcome.dart';
 
 void main() => runApp(MaterialApp(
-      home: splash(),
+      home: welcome(),
     ));
