@@ -11,6 +11,7 @@ class welcomestate extends State<welcome> {
   int u;
   int f;
   bool w = false;
+  bool lo = false;
   double a = 1;
   int l = 10;
   final int random = Random().nextInt(100);
@@ -61,7 +62,7 @@ class welcomestate extends State<welcome> {
                 width: 320,
                 height: 100,
                 child: RaisedButton(
-                  onPressed: w
+                  onPressed: w || lo
                       ? null
                       : () {
                           if (!w) {
@@ -150,6 +151,9 @@ class welcomestate extends State<welcome> {
 
   Widget operation() {
     if (a == 0.0) {
+      setState(() {
+        lo = true;
+      });
       return displayLose();
     } else if (f == null) {
       return Container(
