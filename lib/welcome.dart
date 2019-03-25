@@ -38,10 +38,7 @@ class welcomestate extends State<welcome> {
                         u = int.parse(value);
                       });
                     },
-                    style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 44,
-                        color: Colors.white),
+                    style: TextStyle(fontSize: 44, color: Colors.white),
                     textAlign: TextAlign.center,
                     decoration: new InputDecoration(
                       border: new OutlineInputBorder(
@@ -77,10 +74,7 @@ class welcomestate extends State<welcome> {
                     elevation: 10,
                     child: Text(
                       "TRY",
-                      style: TextStyle(
-                          color: Colors.blue,
-                          fontFamily: 'Montserrat',
-                          fontSize: 36),
+                      style: TextStyle(color: Colors.blue, fontSize: 36),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -91,10 +85,7 @@ class welcomestate extends State<welcome> {
                   padding: EdgeInsets.fromLTRB(40, 30, 10, 0),
                   child: Text(
                     "$l guesses Left",
-                    style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 24,
-                        color: Colors.white),
+                    style: TextStyle(fontSize: 24, color: Colors.white),
                   ),
                 ),
                 Padding(
