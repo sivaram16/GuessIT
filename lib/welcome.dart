@@ -11,7 +11,7 @@ class WelcomeState extends State<Welcome> {
   int u, f, l = 10;
   bool w = false, lo = false;
   double a = 1;
-  final int random = Random().nextInt(100);
+  int random = Random().nextInt(100);
 
   @override
   Widget build(BuildContext context) => _screen();
@@ -71,19 +71,20 @@ class WelcomeState extends State<Welcome> {
   }
 
   Widget _tryButton() {
+    bool _condition= w || lo;
     return Container(
       width: 300,
       height: 80,
       child: RaisedButton(
-        onPressed: w || lo ? null : _setNumber,
+        onPressed: _condition ? _reset : _setNumber,
         color: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(300.0),
         ),
         elevation: 10,
         child: Text(
-          "TRY",
-          style: TextStyle(color: Colors.blue, fontSize: 36),
+          _condition ? "RETRY" : "TRY",
+          style: TextStyle(color: _condition ? Colors.green[900] : Colors.blue, fontSize: 36),
           textAlign: TextAlign.center,
         ),
       ),
@@ -152,5 +153,16 @@ class WelcomeState extends State<Welcome> {
         f = u;
       });
     }
+  }
+
+  void _reset() {
+    setState(() {
+      f = null;
+      w = false;
+      lo = false;
+      a = 1;
+      l = 10;
+      random = new Random().nextInt(100);
+    });
   }
 }

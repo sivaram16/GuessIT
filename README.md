@@ -4,9 +4,11 @@ This is a fun little number guessing name where the goal is to guess the number 
 
 ## Screenshots
 
-<img src="./assets/images/snap2.png" width="300" />
-<img src="./assets/images/snap.png" width="300" /> 
-<img src="./assets/images/snap1.png" width="300" />
+<img src="./assets/images/snap.png" width="300" />
+<img src="./assets/images/snap2.png" width="300" /> 
+<img src="./assets/images/snap3.png" width="300" />
+<img src="./assets/images/snap4.png" width="300" />
+
 
 
 
