@@ -24,22 +24,25 @@ class WelcomeState extends State<Welcome> {
   }
 
   Widget _mainColumn() {
-    return Column(children: <Widget>[
+    return Column(mainAxisSize: MainAxisSize.max, children: <Widget>[
       Container(margin: EdgeInsets.only(top: 40)),
       _guessText(),
-      Container(margin: EdgeInsets.only(top: 50)),
-      _operation(),
       Container(margin: EdgeInsets.only(top: 20)),
+      _operation(),
+      Container(margin: EdgeInsets.only(top: 0)),
       _userInput(),
       _tryButton(),
-      Container(margin: EdgeInsets.only(top: 20)),
-      _noOfTries()
+      Container(margin: EdgeInsets.only(top: 68)),
+      _noOfTries(),
     ]);
   }
 
   Widget _guessText() {
-    return Text("Guess the number!",
-        style: TextStyle(color: Colors.white, fontSize: 36));
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text("Guess the number!",
+          style: TextStyle(color: Colors.white, fontSize: 24)),
+    );
   }
 
   Widget _userInput() {
@@ -69,8 +72,8 @@ class WelcomeState extends State<Welcome> {
 
   Widget _tryButton() {
     return Container(
-      width: 320,
-      height: 100,
+      width: 300,
+      height: 80,
       child: RaisedButton(
         onPressed: w || lo ? null : _setNumber,
         color: Colors.white,
@@ -92,17 +95,17 @@ class WelcomeState extends State<Welcome> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "$l guesses Left",
+          "$l guesses left",
           style: TextStyle(fontSize: 24, color: Colors.white),
         ),
         Container(margin: EdgeInsets.only(left: 30)),
         LinearPercentIndicator(
           width: 120.0,
           animation: true,
-          animationDuration: 1500,
+          animationDuration: 500,
           lineHeight: 30.0,
           percent: a,
-          backgroundColor: Colors.grey[400],
+          backgroundColor: Colors.blue[400],
           progressColor: Colors.white,
         ),
       ],
