@@ -1,5 +1,5 @@
-name: flutter_create
-description: A new Flutter application.
+name: guessIT
+description: This is a fun little number guessing name where the goal is to guess the number that the CPU has in mind within a limited number of guesses this Flutter app was developed and submitted for the Flutter Create Contest.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43

@@ -12,6 +12,7 @@ class WelcomeState extends State<Welcome> {
   bool w = false, lo = false;
   double a = 1;
   int random = Random().nextInt(100);
+  final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) => _screen();
@@ -50,6 +51,7 @@ class WelcomeState extends State<Welcome> {
       height: 150,
       width: 300,
       child: TextField(
+        controller: _controller,
         onChanged: (value) {
           setState(() {
             u = int.parse(value);
@@ -71,7 +73,7 @@ class WelcomeState extends State<Welcome> {
   }
 
   Widget _tryButton() {
-    bool _condition= w || lo;
+    bool _condition = w || lo;
     return Container(
       width: 300,
       height: 80,
@@ -84,7 +86,9 @@ class WelcomeState extends State<Welcome> {
         elevation: 10,
         child: Text(
           _condition ? "RETRY" : "TRY",
-          style: TextStyle(color: _condition ? Colors.green[900] : Colors.blue, fontSize: 36),
+          style: TextStyle(
+              color: _condition ? Colors.green[900] : Colors.blue,
+              fontSize: 36),
           textAlign: TextAlign.center,
         ),
       ),
@@ -158,11 +162,13 @@ class WelcomeState extends State<Welcome> {
   void _reset() {
     setState(() {
       f = null;
+      u = null;
       w = false;
       lo = false;
       a = 1;
       l = 10;
       random = new Random().nextInt(100);
+      _controller.clear();
     });
   }
 }
