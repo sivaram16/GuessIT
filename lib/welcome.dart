@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'dart:math';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Welcome extends StatefulWidget {
   @override
@@ -118,8 +119,8 @@ class WelcomeState extends State<Welcome> {
   }
 
   Widget _displayResult(image) {
-    return Image(
-      image: AssetImage("assets/images/$image.png"),
+    return SvgPicture.asset(
+      "assets/images/$image.svg",
       height: 180,
       width: 180,
     );
